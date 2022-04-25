@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: configuration-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/shashankW13/olx-app-config
+          username: shashankW13
+          clone-on-start: true
+          default-label: main
+  zipkin:
+    base-url: http://localhost:9411
+
+server:
+  port: 8888
