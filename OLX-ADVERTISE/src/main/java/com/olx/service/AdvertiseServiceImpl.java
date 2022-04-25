@@ -45,14 +45,9 @@ public class AdvertiseServiceImpl implements AdvertiseService{
 	//8
 	@Override
 	public AdvertiseDTO createNewAdvertise(AdvertiseDTO advertiseDto, String authToken) {
-		String categoryName = 
-				masterDataDelegate.getCategoryDescription(advertiseDto.getCategory(), authToken);
-		String statusName =
-				masterDataDelegate.getStatusName(advertiseDto.getStatus(), authToken);
+		
 		if(loginServiceDelegate.isTokenValid(authToken)) {
 			AdvertiseEntity advertiseEntity = convertDTOIntoEntity(advertiseDto);
-			advertiseEntity.setCategoryName(categoryName);
-			advertiseEntity.setStatusName(statusName);
 			advertiseEntity.setCreatedDate(LocalDate.now());
 			advertiseEntity.setModifiedDate(LocalDate.now());
 			advertiseEntity.setActive(true);
